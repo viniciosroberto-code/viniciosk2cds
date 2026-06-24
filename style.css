@@ -1,59 +1,94 @@
-/* ================= CONFIGURAÇÕES GERAIS ================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body{
+font-family: "Poppins", sans-serif;
+}
+header{
+background-color: #424e61;
+color: white;
+width: 100%;
+padding: 20px;
+}
+.cabecalho-itens{
+max-width: 1980px;
+margin: 0 auto;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.cabecalho-imagem{
+width: 10%;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+.titulo_site{
+padding: 50px;
+text-align: center;
+width: 50%;
+font: 30px;
+}
+.sociais{
+display: flex;
+justify-content: flex-end;
+width: 25%;
+padding-right: 30px;
+}
+.banner1{
+display: flex;
+justify-content: center;
+}
+.estudante_titulo{
+padding: 50px;
+text-align: center;
+
+}
+.estudante-nome{
+text-align: center;
+}
+.estudante-imagem{
+width: 120px;
+}
+.estudante-icone{
+width: 38px;
+padding: 4px 8px;
+}
+.estudante{
+background-image: background-color(#2401eb);
+padding: 24px 0;
 }
 
-body {
-    font-family: "Poppins", sans-serif;
-    background-color: #f4f6f9; /* Fundo levemente cinza para destacar os cartões brancos */
-    color: #333;
+.estudante.div{
+text-align: center;
+padding: 24px 0;
+}
+.estudantes_todos{
+display: flex;
+justify-content: space-around;
+}
+.escola{
+background-image: linear-gradient(#40A2E3,#7FC2EF);
+color: white;
+display: flex;
+justify-content:center;
+padding: 24px 0;
+text-align:center;
+display:block;
+}
+.escola-titulo{
+padding: 50px;
+text-align: center;
+}
+.logo_rodape{
+height: 80px;
+padding: 12px 0;
+
 }
 
-/* ================= CABEÇALHO (HEADER) ================= */
-header.cabecalho-itens {
-    background-color: #041cf8;
-    color: white;
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.link{
+color: #ffffff;
+text-decoration: none;
 }
-
-.cabecalho-imagem {
-    width: 130px; /* Tamanho controlado para a sua logo não sumir */
-    height: auto;
-    display: block;
-}
-
-/* ================= BANNER ================= */
-.banner1 {
-    width: 100%;
-    display: block;
-}
-
-.banner1 img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* ================= TÍTULOS DAS SEÇÕES ================= */
-.estudante_titulo {
-    padding: 60px 20px 30px 20px;
-    text-align: center;
-    font-size: 32px;
-    font-weight: 600;
-    color: #222;
-}
-
-/* ================= ALINHAMENTO DAS FOTOS (IGUAL À FOTO DO BING) ================= */
-.estudantes_todos {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Força exatamente 3 colunas iguais */
-    gap: 30px; /* Espaço perfeito entre os cartões */
-    max-width: 1200px; /* Mantém tudo centralizado em telas grandes */
-    margin: 0 auto;
-    padding: 0
