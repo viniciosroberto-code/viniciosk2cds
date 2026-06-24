@@ -8,7 +8,7 @@ body{
 font-family: "Poppins", sans-serif;
 }
 header{
-background-color: #424e61;
+background-color: #041cf8;
 color: white;
 width: 100%;
 padding: 20px;
@@ -21,10 +21,10 @@ align-items: center;
 justify-content: center;
 }
 .cabecalho-imagem{
-width: 5%;
+width: 10%;
 display: flex;
 justify-content: flex-start;
-align-items: center;
+align-items: left;
 }
 .titulo_site{
 padding: 50px;
