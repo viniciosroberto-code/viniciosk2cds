@@ -1,3 +1,4 @@
+/* ================= CONFIGURAÇÕES GERAIS ================= */
 * {
     margin: 0;
     padding: 0;
@@ -6,137 +7,53 @@
 
 body {
     font-family: "Poppins", sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Garante que o rodapé vá para o final se houver um */
-    background-color: #f9f9f9;
+    background-color: #f4f6f9; /* Fundo levemente cinza para destacar os cartões brancos */
+    color: #333;
 }
 
-/* ================= HEADER / CABEÇALHO ================= */
+/* ================= CABEÇALHO (HEADER) ================= */
 header.cabecalho-itens {
     background-color: #041cf8;
     color: white;
     width: 100%;
     padding: 20px;
     display: flex;
-    justify-content: center; /* Centraliza a logo no cabeçalho */
+    justify-content: center;
     align-items: center;
 }
 
 .cabecalho-imagem {
-    max-width: 150px; /* Ajuste o tamanho máximo da sua logo aqui */
-    width: 100%;
+    width: 130px; /* Tamanho controlado para a sua logo não sumir */
     height: auto;
+    display: block;
 }
 
 /* ================= BANNER ================= */
 .banner1 {
     width: 100%;
-    overflow: hidden;
+    display: block;
 }
 
 .banner1 img {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
 }
 
+/* ================= TÍTULOS DAS SEÇÕES ================= */
 .estudante_titulo {
-    padding: 50px 20px 20px 20px;
+    padding: 60px 20px 30px 20px;
     text-align: center;
-    font-size: 30px;
-    color: #333;
+    font-size: 32px;
+    font-weight: 600;
+    color: #222;
 }
 
-/* ================= GRID DE FOTOS (Alinhamento em 3 Colunas) ================= */
+/* ================= ALINHAMENTO DAS FOTOS (IGUAL À FOTO DO BING) ================= */
 .estudantes_todos {
     display: grid;
-    /* Cria exatamente 3 colunas de tamanhos iguais */
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 30px; /* Espaçamento entre os cartões */
-    max-width: 1200px; /* Mantém a galeria centralizada em telas grandes */
-    margin: 0 auto 40px auto;
-    padding: 0 20px;
-    width: 100%;
-}
-
-/* CARD INDIVIDUAL (Mudei para o nome exato do seu HTML: estudante-div) */
-.estudante-div {
-    background-color: white;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
-    overflow: hidden;
-    text-align: center;
-    padding-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.2s;
-}
-
-/* Efeito sutil ao passar o mouse */
-.estudante-div:hover {
-    transform: translateY(-5px);
-}
-
-/* Imagem principal do Card */
-.estudante-imagem {
-    width: 100%;
-    height: 250px; /* Altura padrão fixa para alinhar todas as fotos na mesma linha */
-    object-fit: cover; /* Recorta a imagem proporcionalmente sem distorcer */
-    display: block;
-}
-
-/* Nome abaixo da foto */
-.estudante-nome {
-    margin: 15px 0 10px 0;
-    font-size: 20px;
-    color: #333;
-}
-
-/* Ícone do Instagram / Escola */
-.estudante-icone {
-    width: 35px; /* Tamanho controlado para os ícones de redes sociais */
-    height: auto;
-    transition: opacity 0.2s;
-}
-
-.estudante-icone:hover {
-    opacity: 0.8;
-}
-
-/* ================= SEÇÃO DE VÍDEOS ================= */
-.container-videos {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Organiza os vídeos em 2 colunas */
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto 50px auto;
-    padding: 0 20px;
-    width: 100%;
-}
-
-.video-github {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* ================= RESPONSIVIDADE (Telas menores) ================= */
-@media (max-width: 992px) {
-    .estudantes_todos {
-        grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets */
-    }
-}
-
-@media (max-width: 650px) {
-    .estudantes_todos, .container-videos {
-        grid-template-columns: 1fr; /* 1 coluna no celular para fotos e vídeos */
-    }
-    
-    .estudante_titulo {
-        font-size: 24px;
-    }
-}
+    grid-template-columns: repeat(3, 1fr); /* Força exatamente 3 colunas iguais */
+    gap: 30px; /* Espaço perfeito entre os cartões */
+    max-width: 1200px; /* Mantém tudo centralizado em telas grandes */
+    margin: 0 auto;
+    padding: 0
