@@ -111,3 +111,8 @@ text-decoration: none;
   width: 40%;                /* Define a largura do vídeo (ajuste como quiser) */
   height: auto;              /* Mantém a proporção do vídeo sem distorcer */
 }
+
+.video {
+  width: 200;
+  height: auto;
+}
