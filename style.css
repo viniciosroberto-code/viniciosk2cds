@@ -1,44 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-*{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+body {
+    font-family: "Poppins", sans-serif;
 }
-body{
-font-family: "Poppins", sans-serif;
+
+header {
+    background-color: #041cf8;
+    color: white;
+    width: 100%;
+    padding: 20px;
 }
-header{
-background-color: #041cf8;
-color: white;
-width: 100%;
-padding: 20px;
+
+.cabecalho-itens {
+    max-width: 100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.cabecalho-itens{
-max-width: 100px;
-margin: 0 auto;
-display: flex;
-align-items: center;
-justify-content: center;
+
+.cabecalho-imagem {
+    width: 10%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: left;
 }
-.cabecalho-imagem{
-width: 10%;
-display: flex;
-justify-content: flex-start;
-align-items: left;
+
+.titulo_site {
+    padding: 50px;
+    text-align: center;
+    width: 50%;
+    font-size: 30px;
 }
-.titulo_site{
-padding: 50px;
-text-align: center;
-width: 50%;
-font: 30px;
+
+.sociais {
+    display: flex;
+    justify-content: flex-end;
+    width: 25%;
+    padding-right: 30px;
 }
-.sociais{
-display: flex;
-justify-content: flex-end;
-width: 25%;
-padding-right: 30px;
-}
-banner1 {
+
+.banner1 {
     width: 100%;
     overflow: hidden;
 }
@@ -48,32 +54,48 @@ banner1 {
     height: auto;
     object-fit: contain;
 }
-.estudante_titulo{
-padding: 50px;
-text-align: center;
 
-}
-.estudante-nome{
-text-align: center;
-}
-.estudante-imagem{
-width: 120px;
-}
-.estudante-icone{
-width: 38px;
-padding: 4px 8px;
-}
-.estudante{
-background-image: background-color(#faae43);
-padding: 24px 0;
+.estudante_titulo {
+    padding: 50px;
+    text-align: center;
 }
 
+/* CONTAINER DOS ALUNOS: Alinha os cards em sequência (lado a lado) */
+.estudantes_todos {
+    display: flex;
+    justify-content: flex-start; /* Alinha em sequência a partir da esquerda */
+    flex-wrap: wrap;             /* Quebra para a linha de baixo se faltar espaço */
+    gap: 25px;                   /* Espaço entre os cards */
+    padding: 0 20px;
+    margin-bottom: 50px;
+}
+
+/* CARD INDIVIDUAL DO ALUNO */
 .estudante-div {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #faae43;
+    padding: 20px;
+    border-radius: 8px;
+    width: 220px;                /* Largura fixa do card */
+    text-align: center;
 }
 
+.estudante-nome {
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* FOTOS DOS ALUNOS: Maiores, idênticas e em sequência */
+.estudante-imagem {
+    width: 180px;                /* Aumentado para 180px */
+    height: 180px;               /* Altura igual para manter o quadrado perfeito */
+    object-fit: cover;           /* Recorta a imagem sem distorcer ou esticar */
+    border-radius: 8px;          /* Borda levemente arredondada elegante */
+}
+
+/* ÍCONES DAS REDES SOCIAIS */
 .estudante-div a, 
 .estudante-div .estudante-icone {
     display: inline-block;
@@ -82,51 +104,48 @@ padding: 24px 0;
 }
 
 .estudante-icone {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     object-fit: contain;
 }
-.estudantes_todos{
-display: flex;
-justify-content: space-around;
-}
-.escola{
-background-image: linear-gradient(#40A2E3,#7FC2EF);
-color: white;
-display: flex;
-justify-content:center;
-padding: 24px 0;
-text-align:center;
-display:block;
-}
-.escola-titulo{
-padding: 50px;
-text-align: center;
-}
-.logo_rodape{
-height: 80px;
-padding: 12px 0;
 
+.escola {
+    background-image: linear-gradient(#40A2E3,#7FC2EF);
+    color: white;
+    padding: 24px 0;
+    text-align: center;
 }
 
-.link{
-color: #ffffff;
-text-decoration: none;
+.escola-titulo {
+    padding: 50px;
+    text-align: center;
 }
-/* Caixa que segura os dois vídeos */
+
+.logo_rodape {
+    height: 80px;
+    padding: 12px 0;
+}
+
+.link {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* CONTAINER DOS VÍDEOS: Alinhados em sequência igual às fotos */
 .container-videos {
     display: flex;
-    flex-wrap: wrap;       /* Se a tela for de celular, um vai para baixo do outro */
-    gap: 20px;             /* Espaço entre um vídeo e outro */
-    justify-content: flex-start; /* Alinha a sequência no começo (esquerda) */
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: flex-start; /* Alinha em sequência a partir da esquerda */
     margin: 20px 0;
+    padding: 0 20px;
 }
 
-/* Configuração de tamanho idêntico para os vídeos */
+/* CONFIGURAÇÃO DOS VÍDEOS */
 .video-github {
     flex: 1;
-    min-width: 280px;      /* Não deixa o vídeo esmagar em telas pequenas */
-    max-width: 450px;      /* Controla o tamanho máximo de cada um */
+    min-width: 280px;
+    max-width: 450px;            /* Mantém o tamanho controlado em sequência */
     height: auto;
     border-radius: 8px;
 }
