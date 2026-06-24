@@ -8,45 +8,28 @@ body {
     font-family: "Poppins", sans-serif;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Garante que o rodapé vá para o final */
+    min-height: 100vh; /* Garante que o rodapé vá para o final se houver um */
+    background-color: #f9f9f9;
 }
 
-header {
+/* ================= HEADER / CABEÇALHO ================= */
+header.cabecalho-itens {
     background-color: #041cf8;
     color: white;
     width: 100%;
     padding: 20px;
-}
-
-.cabecalho-itens {
-    max-width: 100px;
-    margin: 0 auto;
     display: flex;
+    justify-content: center; /* Centraliza a logo no cabeçalho */
     align-items: center;
-    justify-content: center;
 }
 
 .cabecalho-imagem {
-    width: 10%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: left;
+    max-width: 150px; /* Ajuste o tamanho máximo da sua logo aqui */
+    width: 100%;
+    height: auto;
 }
 
-.titulo_site {
-    padding: 50px;
-    text-align: center;
-    width: 50%;
-    font-size: 30px;
-}
-
-.sociais {
-    display: flex;
-    justify-content: flex-end;
-    width: 25%;
-    padding-right: 30px;
-}
-
+/* ================= BANNER ================= */
 .banner1 {
     width: 100%;
     overflow: hidden;
@@ -55,24 +38,105 @@ header {
 .banner1 img {
     width: 100%;
     height: auto;
-    object-fit: contain;
+    display: block;
+    object-fit: cover;
 }
 
 .estudante_titulo {
-    padding: 50px;
+    padding: 50px 20px 20px 20px;
     text-align: center;
+    font-size: 30px;
+    color: #333;
 }
 
-/* 1ª LINHA: CONTAINER DOS ALUNOS */
+/* ================= GRID DE FOTOS (Alinhamento em 3 Colunas) ================= */
 .estudantes_todos {
-    display: flex;
-    justify-content: center; /* Centraliza a fileira na tela */
-    flex-wrap: wrap;         
-    gap: 20px;               
-    padding: 20px;
+    display: grid;
+    /* Cria exatamente 3 colunas de tamanhos iguais */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* Espaçamento entre os cartões */
+    max-width: 1200px; /* Mantém a galeria centralizada em telas grandes */
+    margin: 0 auto 40px auto;
+    padding: 0 20px;
     width: 100%;
-    margin-bottom: 40px;
 }
 
-/* CARD INDIVIDUAL DO ALUNO (Estilo retangular limpo) */
-.est
+/* CARD INDIVIDUAL (Mudei para o nome exato do seu HTML: estudante-div) */
+.estudante-div {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+/* Efeito sutil ao passar o mouse */
+.estudante-div:hover {
+    transform: translateY(-5px);
+}
+
+/* Imagem principal do Card */
+.estudante-imagem {
+    width: 100%;
+    height: 250px; /* Altura padrão fixa para alinhar todas as fotos na mesma linha */
+    object-fit: cover; /* Recorta a imagem proporcionalmente sem distorcer */
+    display: block;
+}
+
+/* Nome abaixo da foto */
+.estudante-nome {
+    margin: 15px 0 10px 0;
+    font-size: 20px;
+    color: #333;
+}
+
+/* Ícone do Instagram / Escola */
+.estudante-icone {
+    width: 35px; /* Tamanho controlado para os ícones de redes sociais */
+    height: auto;
+    transition: opacity 0.2s;
+}
+
+.estudante-icone:hover {
+    opacity: 0.8;
+}
+
+/* ================= SEÇÃO DE VÍDEOS ================= */
+.container-videos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Organiza os vídeos em 2 colunas */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.video-github {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ================= RESPONSIVIDADE (Telas menores) ================= */
+@media (max-width: 992px) {
+    .estudantes_todos {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets */
+    }
+}
+
+@media (max-width: 650px) {
+    .estudantes_todos, .container-videos {
+        grid-template-columns: 1fr; /* 1 coluna no celular para fotos e vídeos */
+    }
+    
+    .estudante_titulo {
+        font-size: 24px;
+    }
+}
