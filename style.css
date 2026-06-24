@@ -8,7 +8,7 @@ body {
     font-family: "Poppins", sans-serif;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Garante que o corpo ocupe a tela toda */
+    min-height: 100vh; /* Garante que o rodapé vá para o final */
 }
 
 header {
@@ -63,69 +63,16 @@ header {
     text-align: center;
 }
 
-/* 1ª LINHA: CONTAINER DOS ALUNOS (FOTOS EM CIMA) */
+/* 1ª LINHA: CONTAINER DOS ALUNOS */
 .estudantes_todos {
     display: flex;
-    justify-content: flex-start; 
-    flex-wrap: wrap;             
-    gap: 25px;                   
-    padding: 0 20px;
-    margin-bottom: 40px; /* Espaço antes de começar a linha dos vídeos */
-    width: 100%;
-}
-
-/* CARD INDIVIDUAL DO ALUNO */
-.estudante-div {
-    display: flex;
-    flex-direction:
-    /* CONTAINER DOS ALUNOS: Alinha os cards lado a lado */
-.estudantes_todos {
-    display: flex;
-    justify-content: center; /* Centraliza a fileira de alunos na tela */
+    justify-content: center; /* Centraliza a fileira na tela */
     flex-wrap: wrap;         
-    gap: 20px;               /* Espaço entre um card e outro */
+    gap: 20px;               
     padding: 20px;
     width: 100%;
+    margin-bottom: 40px;
 }
 
-/* CARD INDIVIDUAL DO ALUNO (Igual ao estilo da imagem) */
-.estudante-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #ffffff; /* Fundo branco para destacar a foto */
-    padding: 15px;
-    border: 1px solid #e0e0e0; /* Borda fina cinza ao redor do card */
-    border-radius: 8px;
-    width: 180px;              /* Largura ideal para os cards ficarem em sequência */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Sombra leve no fundo */
-    text-align: center;
-}
-
-/* FOTOS DOS ALUNOS: Formato retangular vertical proporcional */
-.estudante-imagem {
-    width: 100%;          /* Ocupa toda a largura interna do card */
-    height: 200px;        /* Altura vertical esticada igual à foto da moto/exemplo */
-    object-fit: cover;    /* Corta a foto sem amassar ou distorcer */
-    border-radius: 6px;   /* Cantos levemente arredondados */
-}
-
-/* NOME DO ALUNO */
-.estudante-nome {
-    font-size: 16px;
-    color: #333;
-    margin: 12px 0 8px 0;
-    font-weight: 600;
-}
-
-/* ÍCONES DAS REDES SOCIAIS (Alinhados lado a lado abaixo do nome) */
-.estudante-div a {
-    display: inline-block;
-    margin: 0 5px;
-}
-
-.estudante-icone {
-    width: 28px;          /* Tamanho ideal e discreto para os ícones */
-    height: 28px;
-    object-fit: contain;
-}
+/* CARD INDIVIDUAL DO ALUNO (Estilo retangular limpo) */
+.est
