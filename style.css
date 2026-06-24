@@ -20,7 +20,7 @@ align-items: center;
 justify-content: center;
 }
 .cabecalho-imagem{
-width: 5%;
+width: 1%;
 display: flex;
 justify-content: flex-start;
 align-items: center;
@@ -40,7 +40,7 @@ padding-right: 30px;
 .banner1 {
   display: flex;
   justify-content: center;
-  width: 200%; /* Faz o banner ocupar toda a largura disponível */
+  width: 100%; /* Faz o banner ocupar toda a largura disponível */
   
   /* Opcional: se o banner tiver uma imagem de fundo, use as propriedades abaixo */
   background-size: cover;
