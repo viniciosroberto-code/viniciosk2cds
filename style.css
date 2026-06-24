@@ -113,11 +113,20 @@ padding: 12px 0;
 color: #ffffff;
 text-decoration: none;
 }
+/* Caixa que segura os dois vídeos */
+.container-videos {
+    display: flex;
+    flex-wrap: wrap;       /* Se a tela for de celular, um vai para baixo do outro */
+    gap: 20px;             /* Espaço entre um vídeo e outro */
+    justify-content: flex-start; /* Alinha a sequência no começo (esquerda) */
+    margin: 20px 0;
+}
+
+/* Configuração de tamanho idêntico para os vídeos */
 .video-github {
-    width: 100%;
-    max-width: 700px;
+    flex: 1;
+    min-width: 280px;      /* Não deixa o vídeo esmagar em telas pequenas */
+    max-width: 450px;      /* Controla o tamanho máximo de cada um */
     height: auto;
-    display: block;
-    margin: 20px auto;
     border-radius: 8px;
 }
