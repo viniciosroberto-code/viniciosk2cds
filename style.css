@@ -69,9 +69,23 @@ background-image: background-color(#faae43);
 padding: 24px 0;
 }
 
-.estudante.div{
-text-align: center;
-padding: 24px 0;
+.estudante-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.estudante-div a, 
+.estudante-div .estudante-icone {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+}
+
+.estudante-icone {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
 }
 .estudantes_todos{
 display: flex;
