@@ -113,3 +113,11 @@ padding: 12px 0;
 color: #ffffff;
 text-decoration: none;
 }
+.video-github {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+}
