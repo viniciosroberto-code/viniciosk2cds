@@ -40,7 +40,7 @@ padding-right: 30px;
 .banner1 {
   display: flex;
   justify-content: center;
-  width: 50%; /* Faz o banner ocupar toda a largura disponível */
+  width: 200%; /* Faz o banner ocupar toda a largura disponível */
   
   /* Opcional: se o banner tiver uma imagem de fundo, use as propriedades abaixo */
   background-size: cover;
