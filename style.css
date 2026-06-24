@@ -8,7 +8,7 @@ font-family: "Poppins", sans-serif;
 }
 header{
 background-color: #035dee;
-color: white;
+color: rgb(66, 66, 66);
 width: 100%;
 padding: 20px;
 }
@@ -35,7 +35,7 @@ font: 30px;
 display: flex;
 justify-content: flex-end;
 width: 25%;
-padding-right: 30px;
+padding-right: 200px;
 }
 .banner1 {
   display: flex;
