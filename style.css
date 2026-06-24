@@ -6,6 +6,9 @@
 
 body {
     font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o corpo ocupe a tela toda */
 }
 
 header {
@@ -60,92 +63,18 @@ header {
     text-align: center;
 }
 
-/* CONTAINER DOS ALUNOS: Alinha os cards em sequência (lado a lado) */
+/* 1ª LINHA: CONTAINER DOS ALUNOS (FOTOS EM CIMA) */
 .estudantes_todos {
     display: flex;
-    justify-content: flex-start; /* Alinha em sequência a partir da esquerda */
-    flex-wrap: wrap;             /* Quebra para a linha de baixo se faltar espaço */
-    gap: 25px;                   /* Espaço entre os cards */
+    justify-content: flex-start; 
+    flex-wrap: wrap;             
+    gap: 25px;                   
     padding: 0 20px;
-    margin-bottom: 50px;
+    margin-bottom: 40px; /* Espaço antes de começar a linha dos vídeos */
+    width: 100%;
 }
 
 /* CARD INDIVIDUAL DO ALUNO */
 .estudante-div {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #faae43;
-    padding: 20px;
-    border-radius: 8px;
-    width: 220px;                /* Largura fixa do card */
-    text-align: center;
-}
-
-.estudante-nome {
-    text-align: center;
-    margin: 10px 0;
-}
-
-/* FOTOS DOS ALUNOS: Maiores, idênticas e em sequência */
-.estudante-imagem {
-    width: 180px;                /* Aumentado para 180px */
-    height: 180px;               /* Altura igual para manter o quadrado perfeito */
-    object-fit: cover;           /* Recorta a imagem sem distorcer ou esticar */
-    border-radius: 8px;          /* Borda levemente arredondada elegante */
-}
-
-/* ÍCONES DAS REDES SOCIAIS */
-.estudante-div a, 
-.estudante-div .estudante-icone {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 5px;
-}
-
-.estudante-icone {
-    width: 35px;
-    height: 35px;
-    object-fit: contain;
-}
-
-.escola {
-    background-image: linear-gradient(#40A2E3,#7FC2EF);
-    color: white;
-    padding: 24px 0;
-    text-align: center;
-}
-
-.escola-titulo {
-    padding: 50px;
-    text-align: center;
-}
-
-.logo_rodape {
-    height: 80px;
-    padding: 12px 0;
-}
-
-.link {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-/* CONTAINER DOS VÍDEOS: Alinhados em sequência igual às fotos */
-.container-videos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    justify-content: flex-start; /* Alinha em sequência a partir da esquerda */
-    margin: 20px 0;
-    padding: 0 20px;
-}
-
-/* CONFIGURAÇÃO DOS VÍDEOS */
-.video-github {
-    flex: 1;
-    min-width: 280px;
-    max-width: 450px;            /* Mantém o tamanho controlado em sequência */
-    height: auto;
-    border-radius: 8px;
-}
+    flex-direction:
