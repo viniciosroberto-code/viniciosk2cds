@@ -37,11 +37,15 @@ justify-content: flex-end;
 width: 25%;
 padding-right: 200px;
 }
+.banner1 {
+  width: 100%;       /* Garante que o container ocupe a largura toda */
+  overflow: hidden;  /* Evita que qualquer sobra da imagem crie barra de rolagem */
+}
 
-.banner1{
-  width: 100%;       /* Faz a imagem ocupar toda a largura do site */
-  height: auto;      /* Mantém a proporção perfeita para não esticar a imagem */
-  display: block;    /* Remove pequenos espaços em branco indesejados abaixo da imagem */
+.banner1 img {
+  width: 100%;       /* Força a imagem de anime a ocupar 100% da largura da tela */
+  height: auto;      /* Mantém a proporção para não distorcer o desenho */
+  display: block;    /* Remove a linha branca que costuma sobrar embaixo da imagem */
 }
 .estudante_titulo{
 padding: 50px;
