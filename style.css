@@ -47,46 +47,83 @@ padding-right: 200px;
   height: auto;      /* Mantém a proporção para não distorcer o desenho */
   display: block;    /* Remove a linha branca que costuma sobrar embaixo da imagem */
 }
-.estudante_titulo{
-padding: 50px;
-text-align: center;
-
-}
-.estudante-nome{
-text-align: center;
-}
-.estudante-imagem{
-width: 120px;
-}
-.estudante-icone{
-width: 60px;
-padding: 4px 8px;
-}
-.estudante{
-background-image: background-color(#2401eb);
-padding: 24px 0;
+.estudante_titulo {
+  padding: 50px;
+  text-align: center;
+  color: #a855f7; /* Cor roxa para o título se destacar no fundo preto */
+  font-family: Arial, sans-serif;
 }
 
-.estudante.div{
-text-align: center;
-padding: 24px 0;
+.estudante-nome {
+  text-align: center;
+  color: #a855f7;
+  font-family: Arial, sans-serif;
+  margin-top: 10px;
+  font-size: 1rem;
 }
-.estudantes_todos{
-display: flex;
-justify-content: space-around;
+
+/* ONDE AS FOTOS AUMENTAM: Mudei de 120px para 220px */
+.estudante-imagem {
+  width: 220px;       
+  height: 300px;      /* Define uma altura padrão para todas ficarem alinhadas */
+  object-fit: cover;  /* Faz a imagem preencher o espaço sem distorcer */
+  border-radius: 8px; /* Deixa as bordas das fotos arredondadas */
 }
-.escola{
-background-image: linear-gradient(#40A2E3,#7FC2EF);
-color: white;
-display: flex;
-justify-content:center;
-padding: 24px 0;
-text-align:center;
-display:block;
+
+.estudante-icone {
+  width: 60px;
+  padding: 4px 8px;
 }
-.escola-titulo{
-padding: 50px;
-text-align: center;
+
+/* Corrigido o fundo para preto puro (#000000) conforme as imagens anteriores */
+.estudante {
+  background-color: #000000; 
+  padding: 24px 0;
+}
+
+/* Corrigido de .estudante.div para .estudante-div */
+.estudante-div {
+  text-align: center;
+  padding: 10px;
+}
+
+/* Alinhamento flexível para as fotos */
+.galeria-fotos {
+  display: flex;
+  justify-content: center;
+  gap: 25px;          /* Espaço cirúrgico entre cada foto */
+  flex-wrap: wrap;
+  margin-bottom: 50px; /* Margem grande para empurrar os vídeos para baixo */
+}
+
+/* Nova regra para alinhar os vídeos lado a lado na parte inferior */
+.galeria-videos {
+  display: flex;
+  justify-content: center;
+  gap: 40px;          /* Espaço entre os dois vídeos */
+  flex-wrap: wrap;
+  padding-bottom: 40px;
+}
+
+/* Controla o tamanho dos vídeos */
+.video {
+  width: 300px;       /* Tamanho ideal para os vídeos se destacarem embaixo */
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Mantendo o restante do seu código original da escola */
+.escola {
+  background-image: linear-gradient(#40A2E3, #7FC2EF);
+  color: white;
+  padding: 24px 0;
+  text-align: center;
+  display: block;
+}
+
+.escola-titulo {
+  padding: 50px;
+  text-align: center;
 }
 
 .meu-rodape {
