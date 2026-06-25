@@ -88,19 +88,20 @@ display:block;
 padding: 50px;
 text-align: center;
 }
+
 .meu-rodape {
-  background-color: #2b72cb; /* Cor azul do seu fundo atual */
-  color: white;
-  display: flex;
-  flex-wrap: wrap;            /* Quebra as colunas para baixo em telas de celular */
-  justify-content: space-around; /* Distribui o espaço entre as colunas */
+  background-color: #2b72cb; /* Fundo azul */
+  color: white;              /* Texto branco */
+  display: flex;             /* Coloca o Contato e o Mapa lado a lado */
+  flex-wrap: wrap;           /* Se for no celular, joga o mapa para baixo do contato */
+  justify-content: space-between; /* Empurra o contato para a esquerda e o mapa para a direita */
   padding: 40px 20px;
   font-family: Arial, sans-serif;
 }
 
 .coluna-rodape {
   flex: 1;
-  min-width: 250px;          /* Impede que as colunas fiquem muito espremidas */
+  min-width: 300px;          /* Largura mínima para cada bloco não espremer */
   margin: 15px;
 }
 
@@ -110,11 +111,13 @@ text-align: center;
   margin-bottom: 15px;
 }
 
-.coluna-rodape a {
-  color: white;
-  text-decoration: none;
+/* Container do Mapa */
+.mapa-container {
+  width: 100%;
+  max-width: 600px;          /* Deixei um pouco maior já que agora tem mais espaço disponível */
+  border-radius: 8px;        /* Cantos arredondados */
+  overflow: hidden;
 }
-
 .link{
 color: #ffffff;
 text-decoration: none;
