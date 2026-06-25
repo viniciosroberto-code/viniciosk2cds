@@ -118,7 +118,7 @@ text-decoration: none;
   height: auto;
 }
 
-.sociais img {
+.sociais .estudante-icone {
   width: 45px;  /* Mude esse valor para o tamanho que achar melhor (ex: 35px, 50px...) */
   height: auto; /* Garante que o ícone não fique achatado ou esticado */
 }
