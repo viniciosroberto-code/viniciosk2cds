@@ -50,69 +50,59 @@ padding-right: 200px;
 .estudante_titulo {
   padding: 50px;
   text-align: center;
-  color: #a855f7; /* Cor roxa para o título se destacar no fundo preto */
-  font-family: Arial, sans-serif;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: bold;
 }
 
-.estudante-nome {
+.midia-nome {
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  padding: 15px;
+  margin: 0;
+  font-size: 1.1rem;
   text-align: center;
-  color: #a855f7;
-  font-family: Arial, sans-serif;
-  margin-top: 10px;
-  font-size: 1rem;
+  background-color: #1f2833;
 }
 
-/* ONDE AS FOTOS AUMENTAM: Mudei de 120px para 220px */
-.estudante-imagem {
-  width: 220px;       
-  height: 300px;      /* Define uma altura padrão para todas ficarem alinhadas */
-  object-fit: cover;  /* Faz a imagem preencher o espaço sem distorcer */
-  border-radius: 8px; /* Deixa as bordas das fotos arredondadas */
+.grade-midia {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.estudante-icone {
-  width: 60px;
-  padding: 4px 8px;
+.midia-card {
+  background-color: #1f2833;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
 }
 
-/* Corrigido o fundo para preto puro (#000000) conforme as imagens anteriores */
+.midia-card:hover {
+  transform: translateY(-5px);
+}
+
+.midia-card img, 
+.midia-card video {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border: none;
+}
+
 .estudante {
-  background-color: #000000; 
-  padding: 24px 0;
-}
-
-/* Corrigido de .estudante.div para .estudante-div */
-.estudante-div {
+  background-color: #0b0c10;
+  padding: 60px 20px;
   text-align: center;
-  padding: 10px;
 }
 
-/* Alinhamento flexível para as fotos */
-.galeria-fotos {
-  display: flex;
-  justify-content: center;
-  gap: 25px;          /* Espaço cirúrgico entre cada foto */
-  flex-wrap: wrap;
-  margin-bottom: 50px; /* Margem grande para empurrar os vídeos para baixo */
-}
-
-/* Nova regra para alinhar os vídeos lado a lado na parte inferior */
-.galeria-videos {
-  display: flex;
-  justify-content: center;
-  gap: 40px;          /* Espaço entre os dois vídeos */
-  flex-wrap: wrap;
-  padding-bottom: 40px;
-}
-
-/* Controla o tamanho dos vídeos */
-.video {
-  width: 300px;       /* Tamanho ideal para os vídeos se destacarem embaixo */
-  height: auto;
-  border-radius: 8px;
-}
-
-/* Mantendo o restante do seu código original da escola */
 .escola {
   background-image: linear-gradient(#40A2E3, #7FC2EF);
   color: white;
