@@ -31,11 +31,10 @@ text-align: center;
 width: 50%;
 font: 30px;
 }
-.sociais{
-display: flex;
-justify-content: flex-end;
-width: 25%;
-padding-right: 200px;
+.sociais {
+  width: 45px;
+  height: auto;
+  vertical-align: middle;
 }
 .banner1 {
   width: 100%;       /* Garante que o container ocupe a largura toda */
