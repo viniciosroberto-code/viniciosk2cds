@@ -88,10 +88,31 @@ display:block;
 padding: 50px;
 text-align: center;
 }
-.logo_rodape{
-height: 80px;
-padding: 12px 0;
+.meu-rodape {
+  background-color: #2b72cb; /* Cor azul do seu fundo atual */
+  color: white;
+  display: flex;
+  flex-wrap: wrap;            /* Quebra as colunas para baixo em telas de celular */
+  justify-content: space-around; /* Distribui o espaço entre as colunas */
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
 
+.coluna-rodape {
+  flex: 1;
+  min-width: 250px;          /* Impede que as colunas fiquem muito espremidas */
+  margin: 15px;
+}
+
+.coluna-rodape h3 {
+  border-bottom: 2px solid white;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+.coluna-rodape a {
+  color: white;
+  text-decoration: none;
 }
 
 .link{
