@@ -36,6 +36,80 @@ font: 30px;
   height: auto;
   vertical-align: middle;
 }
+/* ===================================
+   ESTILOS DA BARRA DE NAVEGAÇÃO (MENU)
+   =================================== */
+
+/* Remove margens e ajusta a lista */
+ul.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #111111; /* Fundo escuro para combinar com a página */
+  border-bottom: 2px solid #222222;
+}
+
+/* Alinha os itens na horizontal */
+ul.navbar li {
+  float: left;
+}
+
+/* Estilo dos botões e links */
+ul.navbar li a, .dropbtn {
+  display: inline-block;
+  color: #ffffff;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Efeito Hover (passar o mouse por cima) */
+ul.navbar li a:hover, .dropdown:hover .dropbtn {
+  background-color: #ff0055; /* Cor de destaque ao passar o mouse */
+  color: #ffffff;
+}
+
+/* Botão da página atual */
+ul.navbar li a.active {
+  background-color: #222222;
+  color: #ff0055;
+}
+
+/* Configuração do Submenu (Dropdown) */
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #1a1a1a;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.dropdown-content a {
+  color: #ffffff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #333333;
+  color: #ff0055;
+}
+
+/* Exibe o submenu quando o mouse passa sobre ele */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 .banner1 {
   width: 100%;       /* Garante que o container ocupe a largura toda */
   overflow: hidden;  /* Evita que qualquer sobra da imagem crie barra de rolagem */
