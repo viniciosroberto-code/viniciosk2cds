@@ -37,25 +37,24 @@ font: 30px;
   vertical-align: middle;
 }
 /* ===================================
-   ESTILOS DA BARRA DE NAVEGAÇÃO (MENU)
+   ESTILOS DA BARRA DE NAVEGAÇÃO (AZUL)
    =================================== */
 
-/* Remove margens e ajusta a lista */
+/* Barra principal com o tom de azul da imagem */
 ul.navbar {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #111111; /* Fundo escuro para combinar com a página */
-  border-bottom: 2px solid #222222;
+  background-color: #0066FF; /* Azul da imagem */
 }
 
-/* Alinha os itens na horizontal */
+/* Alinha os itens lado a lado */
 ul.navbar li {
   float: left;
 }
 
-/* Estilo dos botões e links */
+/* Estilo do texto dos links */
 ul.navbar li a, .dropbtn {
   display: inline-block;
   color: #ffffff;
@@ -63,19 +62,18 @@ ul.navbar li a, .dropbtn {
   padding: 14px 20px;
   text-decoration: none;
   font-weight: bold;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s;
 }
 
-/* Efeito Hover (passar o mouse por cima) */
+/* Efeito ao passar o mouse (:hover) - Azul mais escuro */
 ul.navbar li a:hover, .dropdown:hover .dropbtn {
-  background-color: #ff0055; /* Cor de destaque ao passar o mouse */
+  background-color: #004ecc;
   color: #ffffff;
 }
 
-/* Botão da página atual */
+/* Item da página ativa */
 ul.navbar li a.active {
-  background-color: #222222;
-  color: #ff0055;
+  background-color: #003db3;
 }
 
 /* Configuração do Submenu (Dropdown) */
@@ -86,9 +84,9 @@ li.dropdown {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #1a1a1a;
+  background-color: #0052cc; /* Fundo do submenu */
   min-width: 160px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
   z-index: 1000;
 }
 
@@ -101,11 +99,10 @@ li.dropdown {
 }
 
 .dropdown-content a:hover {
-  background-color: #333333;
-  color: #ff0055;
+  background-color: #003db3;
 }
 
-/* Exibe o submenu quando o mouse passa sobre ele */
+/* Mostra o dropdown ao passar o mouse */
 .dropdown:hover .dropdown-content {
   display: block;
 }
