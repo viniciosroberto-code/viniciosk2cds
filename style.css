@@ -243,3 +243,13 @@ text-decoration: none;
   width: 45px;  /* Mude esse valor para o tamanho que achar melhor (ex: 35px, 50px...) */
   height: auto; /* Garante que o ícone não fique achatado ou esticado */
 }
+/* Garante que o iframe do vídeo tenha as mesmas dimensões e bordas das imagens */
+.card iframe,
+.card img {
+  width: 100%;
+  height: 200px; /* Ajuste para a altura padronizada dos seus cards */
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border: none;
+}
