@@ -116,6 +116,7 @@ const Game = {
     cellElement.innerHTML = '<img src="sunflower.png" class="plant-img" alt="Sunflower">';
 } else if (HUD.selectedPlant === 'snowpea') {
     cellElement.innerHTML = '<img src="snowpea.png" class="plant-img" alt="Snow Pea">';
+}
 } else if (HUD.selectedPlant === 'repeater') {
     cellElement.innerHTML = '<img src="repeater.png" class="plant-img" alt="Repeater">';
 } else if (HUD.selectedPlant === 'wallnut') {
