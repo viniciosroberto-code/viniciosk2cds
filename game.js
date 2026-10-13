@@ -109,14 +109,12 @@ const Game = {
             type: HUD.selectedPlant,
             health: HUD.selectedPlant === 'wallnut' ? 300 : 100
         };
-
-        if (HUD.selectedPlant === 'peashooter') {
+if (HUD.selectedPlant === 'peashooter') {
     cellElement.innerHTML = '<img src="pea.png" class="plant-img" alt="Peashooter">';
 } else if (HUD.selectedPlant === 'sunflower') {
     cellElement.innerHTML = '<img src="sunflower.png" class="plant-img" alt="Sunflower">';
 } else if (HUD.selectedPlant === 'snowpea') {
     cellElement.innerHTML = '<img src="snowpea.png" class="plant-img" alt="Snow Pea">';
-}
 } else if (HUD.selectedPlant === 'repeater') {
     cellElement.innerHTML = '<img src="repeater.png" class="plant-img" alt="Repeater">';
 } else if (HUD.selectedPlant === 'wallnut') {
