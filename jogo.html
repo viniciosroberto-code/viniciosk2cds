@@ -21,6 +21,29 @@
   </li>
 </ul>
 
+<main id="main-content">
+        <div id="game-section">
+            <div id="game-container">
+                <div id="hud-bar">
+                    <div class="hud-item">Sóis: <span id="sun-count">150</span> ☀️</div>
+                    <div class="hud-item">Planta: <span id="selected-plant">Nenhuma</span></div>
+                    <button id="fullscreen-btn">Tela Cheia ⛶</button>
+                </div>
+
+                <div id="lawn-grid"></div>
+
+                <div id="plant-selector">
+                    <button class="plant-card" data-plant="peashooter" data-cost="100">
+                        Peashooter (100 ☀️)
+                    </button>
+                    <button class="plant-card" data-plant="sunflower" data-cost="50">
+                        Sunflower (50 ☀️)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
 <footer class="meu-rodape">
   
   <div class="coluna-rodape">
@@ -45,6 +68,10 @@
       </iframe>
     </div>
   </div>
+
+<script src="audio.js"></script>
+    <script src="hud.js"></script>
+    <script src="game.js"></script>
 
 </footer>
 </body>
