@@ -111,19 +111,19 @@ const Game = {
         };
 
         if (HUD.selectedPlant === 'peashooter') {
-            cellElement.innerHTML = '<img src="pea.png" class="plant-img" alt="Peashooter">';
-        } else if (HUD.selectedPlant === 'sunflower') {
-            cellElement.innerText = '<img src="sunflower.png" class="plant-img" alt="sunflower">';;
-        } else if (HUD.selectedPlant === 'snowpea') {
-            cellElement.innerText = '🥶';
-        } else if (HUD.selectedPlant === 'repeater') {
-            cellElement.innerText = '🔥';
-        } else if (HUD.selectedPlant === 'wallnut') {
-            cellElement.innerText = '🥜';
-        } else if (HUD.selectedPlant === 'cherrybomb') {
-            cellElement.innerText = '🍒';
-            setTimeout(() => this.explodeCherry(r, c, cellElement), 1000);
-        }
+    cellElement.innerHTML = '<img src="pea.png" class="plant-img" alt="Peashooter">';
+} else if (HUD.selectedPlant === 'sunflower') {
+    cellElement.innerHTML = '<img src="sunflower.png" class="plant-img" alt="Sunflower">';
+} else if (HUD.selectedPlant === 'snowpea') {
+    cellElement.innerHTML = '<img src="snowpea.png" class="plant-img" alt="Snow Pea">';
+} else if (HUD.selectedPlant === 'repeater') {
+    cellElement.innerHTML = '<img src="repeater.png" class="plant-img" alt="Repeater">';
+} else if (HUD.selectedPlant === 'wallnut') {
+    cellElement.innerHTML = '<img src="wallnut.png" class="plant-img" alt="Wall-nut">';
+} else if (HUD.selectedPlant === 'cherrybomb') {
+    cellElement.innerHTML = '<img src="cherrybomb.png" class="plant-img" alt="Cherry Bomb">';
+    setTimeout(() => this.explodeCherry(r, c, cellElement), 1000);
+}
 
         SoundManager.play('plant');
         HUD.clearSelection();
