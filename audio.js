@@ -1,32 +1,38 @@
 const SoundManager = {
-    sounds: {
-        shoot: new Audio('https://www.myinstants.com/media/sounds/blip.mp3'),
-        sun: new Audio('https://www.myinstants.com/media/sounds/coin.mp3'),
-        plant: new Audio('https://www.myinstants.com/media/sounds/click.mp3')
-    },
-
-    bgMusic: new Audio('https://ia801509.us.archive.org/15/items/plants-vs-zombies-soundtrack-grasswalk/Plants%20vs.%20Zombies%20OST%20-%20Grasswalk.mp3'),
+    bgm: null,
+    isMuted: false,
 
     init() {
-        this.bgMusic.loop = true;
-        this.bgMusic.volume = 0.4;
+        this.bgm = new Audio('plants.mp3');
+        this.bgm.loop = true;
+        this.bgm.volume = 0.3;
+    },
 
-        const startMusicOnInteraction = () => {
-            this.bgMusic.play().then(() => {
-                window.removeEventListener('click', startMusicOnInteraction);
-                window.removeEventListener('keydown', startMusicOnInteraction);
-            }).catch(e => console.log("Aguardando interação para tocar a música:", e));
-        };
+    playBGM() {
+        if (this.bgm && this.bgm.paused) {
+            this.bgm.play().catch(() => {});
+        }
+    },
 
-        window.addEventListener('click', startMusicOnInteraction);
-        window.addEventListener('keydown', startMusicOnInteraction);
+    stopBGM() {
+        if (this.bgm) {
+            this.bgm.pause();
+            this.bgm.currentTime = 0;
+        }
     },
 
     play(soundName) {
-        if (this.sounds[soundName]) {
-            const clone = this.sounds[soundName].cloneNode();
-            clone.volume = 0.3;
-            clone.play().catch(e => console.log("Áudio bloqueado:", e));
+        if (this.isMuted) return;
+
+        let soundFile = '';
+        if (soundName === 'plant') soundFile = 'plant.mp3';
+        if (soundName === 'shoot') soundFile = 'shoot.mp3';
+        if (soundName === 'sun') soundFile = 'sun.mp3';
+
+        if (soundFile) {
+            const audio = new Audio(soundFile);
+            audio.volume = 0.6;
+            audio.play().catch(() => {});
         }
     }
 };

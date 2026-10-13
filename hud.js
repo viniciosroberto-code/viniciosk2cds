@@ -103,6 +103,7 @@ const HUD = {
         const startMenu = document.getElementById('start-menu');
 
         startBtn.addEventListener('click', () => {
+            SoundManager.playBGM();
             startMenu.style.display = 'none';
             Game.start();
         });
