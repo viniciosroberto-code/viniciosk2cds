@@ -2,10 +2,25 @@ const Game = {
     gridRows: 5,
     gridCols: 8,
     board: [],
+    spawnerInterval: null,
+    loopInterval: null,
 
     init() {
         this.createGrid();
         this.setupPlantSelector();
+        this.startZombieSpawner();
+        this.startGameLoop();
+    },
+
+    restart() {
+        clearInterval(this.spawnerInterval);
+        clearInterval(this.loopInterval);
+        
+        HUD.resetSuns();
+        HUD.clearSelection();
+        document.querySelectorAll('.plant-card').forEach(c => c.classList.remove('selected'));
+
+        this.createGrid();
         this.startZombieSpawner();
         this.startGameLoop();
     },
@@ -71,7 +86,7 @@ const Game = {
     },
 
     startZombieSpawner() {
-        setInterval(() => {
+        this.spawnerInterval = setInterval(() => {
             const randomRow = Math.floor(Math.random() * this.gridRows);
             this.board[randomRow][this.gridCols - 1].zombies.push({
                 xPos: (this.gridCols - 1),
@@ -81,7 +96,7 @@ const Game = {
     },
 
     startGameLoop() {
-        setInterval(() => {
+        this.loopInterval = setInterval(() => {
             for (let r = 0; r < this.gridRows; r++) {
                 for (let c = 0; c < this.gridCols; c++) {
                     const cellData = this.board[r][c];

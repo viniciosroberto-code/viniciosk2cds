@@ -6,10 +6,16 @@ const HUD = {
     init() {
         this.updateSunDisplay();
         this.setupFullscreen();
+        this.setupRestart();
     },
 
     updateSuns(amount) {
         this.suns += amount;
+        this.updateSunDisplay();
+    },
+
+    resetSuns() {
+        this.suns = 150;
         this.updateSunDisplay();
     },
 
@@ -41,6 +47,13 @@ const HUD = {
             } else {
                 document.exitFullscreen();
             }
+        });
+    },
+
+    setupRestart() {
+        const btn = document.getElementById('restart-btn');
+        btn.addEventListener('click', () => {
+            Game.restart();
         });
     }
 };
