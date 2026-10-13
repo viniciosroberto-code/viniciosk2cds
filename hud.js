@@ -1,14 +1,17 @@
 const HUD = {
     suns: 150,
+    score: 0,
     selectedPlant: null,
     selectedCost: 0,
+    isShovelActive: false,
 
     init() {
         this.updateSunDisplay();
-        this.updateHighScoreDisplay();
+        this.updateScoreDisplay();
         this.setupFullscreen();
         this.setupRestart();
         this.setupStartButton();
+        this.setupShovel();
     },
 
     updateSuns(amount) {
@@ -25,27 +28,27 @@ const HUD = {
         document.getElementById('sun-count').innerText = this.suns;
     },
 
+    addScore(points) {
+        this.score += points;
+        this.updateScoreDisplay();
+    },
+
+    resetScore() {
+        this.score = 0;
+        this.updateScoreDisplay();
+    },
+
+    updateScoreDisplay() {
+        document.getElementById('score-count').innerText = this.score;
+    },
+
     updateWaveDisplay(wave) {
         document.getElementById('wave-count').innerText = wave;
     },
 
-    updateHighScoreDisplay() {
-        const savedScore = localStorage.getItem('pvz_highscore') || 0;
-        const savedName = localStorage.getItem('pvz_playername') || 'Ninguém';
-        document.getElementById('high-score-display').innerText = `${savedScore} (${savedName})`;
-    },
-
-    saveNewRecord(wave) {
-        const currentHigh = parseInt(localStorage.getItem('pvz_highscore') || 0);
-        if (wave > currentHigh) {
-            const name = prompt(`🎉 NOVO RECORDE DA PÁGINA! Você sobreviveu até a Onda ${wave}!\nDigite seu nome para o placar:`) || 'JogadorAnônimo';
-            localStorage.setItem('pvz_highscore', wave);
-            localStorage.setItem('pvz_playername', name);
-            this.updateHighScoreDisplay();
-        }
-    },
-
     setSelectedPlant(plantName, cost) {
+        this.isShovelActive = false;
+        document.getElementById('shovel-btn').classList.remove('selected');
         this.selectedPlant = plantName;
         this.selectedCost = cost;
     },
@@ -53,6 +56,24 @@ const HUD = {
     clearSelection() {
         this.selectedPlant = null;
         this.selectedCost = 0;
+        this.isShovelActive = false;
+        document.querySelectorAll('.seed-card, .shovel-card').forEach(c => c.classList.remove('selected'));
+    },
+
+    setupShovel() {
+        const shovelBtn = document.getElementById('shovel-btn');
+        shovelBtn.addEventListener('click', () => {
+            document.querySelectorAll('.seed-card').forEach(c => c.classList.remove('selected'));
+            this.selectedPlant = null;
+            this.selectedCost = 0;
+            this.isShovelActive = !this.isShovelActive;
+
+            if (this.isShovelActive) {
+                shovelBtn.classList.add('selected');
+            } else {
+                shovelBtn.classList.remove('selected');
+            }
+        });
     },
 
     setupFullscreen() {
