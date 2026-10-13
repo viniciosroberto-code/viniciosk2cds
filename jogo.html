@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Jogo - Plants vs Zombies</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="jogo.css">
 </head>
 <body>
 
@@ -30,85 +31,286 @@
                 <div id="start-menu">
                     <h1>PLANTS VS ZOMBIES</h1>
                     <p>Defenda seu gramado contra as hordas de zumbis!</p>
-                    <button id="start-game-btn">INICIAR JOGO ▶</button>
-                </div>
+                    <!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Plants vs. Zombies - Canvas</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        canvas {
+            border: 4px solid #333;
+            background-color: #3b7a0b;
+        }
+    </style>
+</head>
+<body>
 
-                <div id="top-bar">
-                    <div id="sun-counter">
-                        <span class="sun-icon">☀️</span>
-                        <span id="sun-count">150</span>
-                    </div>
+<canvas id="gameCanvas" width="900" height="500"></canvas>
 
-                    <div id="seed-bank">
-                        <div class="seed-card" data-plant="sunflower" data-cost="50">
-                            <span class="slot-num">1</span>
-                            <span class="card-icon">🌻</span>
-                            <span class="card-cost">50</span>
-                        </div>
-                        <div class="seed-card" data-plant="peashooter" data-cost="100">
-                            <span class="slot-num">2</span>
-                            <img src="pea.png" class="card-img" alt="Pea">
-                            <span class="card-cost">100</span>
-                        </div>
-                        <div class="seed-card" data-plant="snowpea" data-cost="150">
-                            <span class="slot-num">3</span>
-                            <span class="card-icon">🥶</span>
-                            <span class="card-cost">150</span>
-                        </div>
-                        <div class="seed-card" data-plant="repeater" data-cost="200">
-                            <span class="slot-num">4</span>
-                            <span class="card-icon">🔥</span>
-                            <span class="card-cost">200</span>
-                        </div>
-                        <div class="seed-card" data-plant="wallnut" data-cost="50">
-                            <span class="slot-num">5</span>
-                            <span class="card-icon">🥜</span>
-                            <span class="card-cost">50</span>
-                        </div>
-                        <div class="seed-card" data-plant="cherrybomb" data-cost="150">
-                            <span class="slot-num">6</span>
-                            <span class="card-icon">🍒</span>
-                            <span class="card-cost">150</span>
-                        </div>
-                        <div class="shovel-card" id="shovel-btn">
-                            <span class="card-icon">⛏️</span>
-                            <span class="card-label">PÁ</span>
-                        </div>
-                    </div>
+<script>
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
 
-                    <div id="score-board">
-                        <div class="info-group">
-                            <span class="info-title">PONTOS</span>
-                            <span id="score-count">0</span>
-                        </div>
-                        <div class="info-group">
-                            <span class="info-title">ONDA</span>
-                            <span id="wave-count">1</span>
-                        </div>
-                    </div>
+// Configurações do tabuleiro
+const ROWS = 5;
+const COLS = 9;
+const CELL_W = 85;
+const CELL_H = 80;
+const OFFSET_X = 110;
+const OFFSET_Y = 40;
 
-                    <div id="hud-controls">
-                        <button id="restart-btn" title="Reiniciar">🔄</button>
-                        <button id="fullscreen-btn" title="Tela Cheia">⛶</button>
-                    </div>
-                </div>
+let suns = 150;
+let score = 0;
+let plants = [];
+let zombies = [];
+let bullets = [];
+let sunParticles = [];
+let spawnTimer = 0;
 
-                <div id="lawn-wrapper">
-                    <div id="mower-lane">
-                        <div class="mower">🚜</div>
-                        <div class="mower">🚜</div>
-                        <div class="mower">🚜</div>
-                        <div class="mower">🚜</div>
-                        <div class="mower">🚜</div>
-                    </div>
-                    <div id="lawn-grid"></div>
-                </div>
+// Classe Planta
+class Plant {
+    constructor(row, col) {
+        this.row = row;
+        this.col = col;
+        this.x = OFFSET_X + col * CELL_W + 25;
+        this.y = OFFSET_Y + row * CELL_H + 20;
+        this.hp = 100;
+        this.timer = 0;
+    }
 
-                <div id="message-banner">Plante Girassóis para gerar mais sol!</div>
-            </div>
-        </div>
-    </main>
+    update() {
+        this.timer++;
+        // Dispara uma ervilha a cada 90 frames se houver zombie na mesma linha
+        if (this.timer % 90 === 0) {
+            const zombieInRow = zombies.some(z => z.row === this.row && z.x > this.x);
+            if (zombieInRow) {
+                bullets.push(new Bullet(this.x + 20, this.y + 15, this.row));
+            }
+        }
+    }
 
+    draw() {
+        // Desenhar planta (estilo girassol/ervilha)
+        ctx.fillStyle = '#2ecc71';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, 22, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#27ae60';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        // Olhos da planta
+        ctx.fillStyle = '#fff';
+        ctx.beginPath();
+        ctx.arc(this.x - 6, this.y - 4, 5, 0, Math.PI * 2);
+        ctx.arc(this.x + 6, this.y - 4, 5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#000';
+        ctx.beginPath();
+        ctx.arc(this.x - 6, this.y - 4, 2, 0, Math.PI * 2);
+        ctx.arc(this.x + 6, this.y - 4, 2, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+// Classe Zombie
+class Zombie {
+    constructor(row) {
+        this.row = row;
+        this.x = canvas.width;
+        this.y = OFFSET_Y + row * CELL_H + 15;
+        this.speed = 0.4;
+        this.hp = 100;
+    }
+
+    update() {
+        // Verifica se há planta a bloquear o caminho
+        const blockingPlant = plants.find(p => p.row === this.row && Math.abs(p.x - this.x) < 35);
+        if (blockingPlant) {
+            blockingPlant.hp -= 0.5;
+            if (blockingPlant.hp <= 0) {
+                plants = plants.filter(p => p !== blockingPlant);
+            }
+        } else {
+            this.x -= this.speed;
+        }
+    }
+
+    draw() {
+        // Corpo do zombie
+        ctx.fillStyle = '#c0392b';
+        ctx.fillRect(this.x, this.y, 35, 50);
+
+        // Cabeça
+        ctx.fillStyle = '#e74c3c';
+        ctx.beginPath();
+        ctx.arc(this.x + 18, this.y - 10, 14, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Olhos
+        ctx.fillStyle = '#f1c40f';
+        ctx.fillRect(this.x + 10, this.y - 15, 4, 4);
+        ctx.fillRect(this.x + 20, this.y - 15, 4, 4);
+    }
+}
+
+// Classe Projétil (Ervilha)
+class Bullet {
+    constructor(x, y, row) {
+        this.x = x;
+        this.y = y;
+        this.row = row;
+        this.speed = 5;
+        this.active = true;
+    }
+
+    update() {
+        this.x += this.speed;
+        if (this.x > canvas.width) this.active = false;
+    }
+
+    draw() {
+        ctx.fillStyle = '#2ecc71';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, 7, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+// Função para desenhar o relvado (drawLawn)
+function drawLawn() {
+    for (let r = 0; r < ROWS; r++) {
+        for (let c = 0; c < COLS; c++) {
+            ctx.fillStyle = (r + c) % 2 === 0 ? '#4e9a06' : '#438505';
+            ctx.fillRect(OFFSET_X + c * CELL_W, OFFSET_Y + r * CELL_H, CELL_W, CELL_H);
+            
+            ctx.strokeStyle = '#2e6303';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(OFFSET_X + c * CELL_W, OFFSET_Y + r * CELL_H, CELL_W, CELL_H);
+        }
+    }
+}
+
+// Função para desenhar a interface (drawHud)
+function drawHud() {
+    // Barra superior
+    ctx.fillStyle = '#222';
+    ctx.fillRect(0, 0, canvas.width, OFFSET_Y);
+
+    // Texto de sóis e pontuação
+    ctx.fillStyle = '#f1c40f';
+    ctx.font = 'bold 18px Arial';
+    ctx.fillText(`Sóis: ${suns}`, 20, 26);
+
+    ctx.fillStyle = '#fff';
+    ctx.fillText(`Pontuação: ${score}`, 150, 26);
+
+    // Caixa de seleção de planta no HUD
+    ctx.fillStyle = '#444';
+    ctx.fillRect(canvas.width - 120, 5, 100, 30);
+    ctx.fillStyle = '#2ecc71';
+    ctx.font = '14px Arial';
+    ctx.fillText('Planta (50s)', canvas.width - 112, 24);
+}
+
+// Função principal de desenho e atualização do mundo
+function gameLoop() {
+    // Limpar o ecrã
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // 1. Desenhar o relvado e HUD
+    drawLawn();
+    drawHud();
+
+    // 2. Atualizar e desenhar Plantas
+    plants.forEach(plant => {
+        plant.update();
+        plant.draw();
+    });
+
+    // 3. Atualizar e desenhar Projéteis
+    bullets.forEach(bullet => {
+        bullet.update();
+        bullet.draw();
+
+        // Colisão com zombies
+        zombies.forEach((zombie, zIndex) => {
+            if (bullet.row === zombie.row && Math.abs(bullet.x - zombie.x) < 20) {
+                zombie.hp -= 25;
+                bullet.active = false;
+                if (zombie.hp <= 0) {
+                    zombies.splice(zIndex, 1);
+                    score += 10;
+                }
+            }
+        });
+    });
+    bullets = bullets.filter(b => b.active);
+
+    // 4. Gerador de Zombies automático
+    spawnTimer++;
+    if (spawnTimer % 250 === 0) {
+        const randomRow = Math.floor(Math.random() * ROWS);
+        zombies.push(new Zombie(randomRow));
+    }
+
+    // 5. Atualizar e desenhar Zombies
+    zombies.forEach(zombie => {
+        zombie.update();
+        zombie.draw();
+        
+        // Condição de fim de jogo se o zombie chegar ao fim
+        if (zombie.x < OFFSET_X - 30) {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#e74c3c';
+            ctx.font = 'bold 40px Arial';
+            ctx.fillText('GAME OVER', canvas.width / 2 - 120, canvas.height / 2);
+            throw new Error("Fim do Jogo");
+        }
+    });
+
+    requestAnimationFrame(gameLoop);
+}
+
+// Evento de clique para plantar no tabuleiro
+canvas.addEventListener('click', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    // Verificar se clicou na grelha do jogo
+    if (mouseX >= OFFSET_X && mouseX <= OFFSET_X + COLS * CELL_W &&
+        mouseY >= OFFSET_Y && mouseY <= OFFSET_Y + ROWS * CELL_H) {
+        
+        const col = Math.floor((mouseX - OFFSET_X) / CELL_W);
+        const row = Math.floor((mouseY - OFFSET_Y) / CELL_H);
+
+        // Verificar se já existe planta na célula e se há sóis suficientes
+        const existing = plants.find(p => p.row === row && p.col === col);
+        if (!existing && suns >= 50) {
+            plants.push(new Plant(row, col));
+            suns -= 50;
+        }
+    }
+});
+
+// Começar o jogo
+gameLoop();
+</script>
+
+</body>
+</html>
    <div class="coluna-rodape">
     <h3>LOCALIZAÇÃO</h3>
     <div class="mapa-container">
