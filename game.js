@@ -113,7 +113,7 @@ const Game = {
         if (HUD.selectedPlant === 'peashooter') {
             cellElement.innerHTML = '<img src="pea.png" class="plant-img" alt="Peashooter">';
         } else if (HUD.selectedPlant === 'sunflower') {
-            cellElement.innerText = '🌻';
+            cellElement.innerText = '<img src="sunflower.png" class="plant-img" alt="sunflower">';;
         } else if (HUD.selectedPlant === 'snowpea') {
             cellElement.innerText = '🥶';
         } else if (HUD.selectedPlant === 'repeater') {
