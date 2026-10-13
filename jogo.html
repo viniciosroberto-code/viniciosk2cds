@@ -1,87 +1,121 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>| MEU JOGO</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="jogo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Jogo - Plants vs Zombies</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Barra de Navegação (jogo) -->
-<ul class="navbar">
-  <li><a href="index.html" class="active">Inicial</a></li>
-  <li><a href="sobre.html">Sobre</a></li>
-  <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Social &#9662;</a>
-    <div class="dropdown-content">
-      <a href="social.html">Redes Sociais</a>
-      <a href="jogo.html">Meu Jogo </a>
-    </div>
-  </li>
-</ul>
+    <nav class="navbar">
+    </nav>
 
-<main id="main-content">
+    <main id="main-content">
         <div id="game-section">
             <div id="game-container">
-              <div id="start-menu">
+                <div id="start-menu">
                     <h1>PLANTS VS ZOMBIES</h1>
+                    <p>Defenda seu gramado contra as hordas de zumbis!</p>
                     <button id="start-game-btn">INICIAR JOGO ▶</button>
                 </div>
-                <div id="hud-bar">
-                    <div class="hud-item">Sóis: <span id="sun-count">150</span> ☀️</div>
-                    <div class="hud-item">Planta: <span id="selected-plant">Nenhuma</span></div>
-                    <div class="hud-item">Onda: <span id="wave-count">1</span> 🌊</div>
-                    <div class="hud-item">Recorde: <span id="high-score-display">0 (Ninguém)</span> 🏆</div>
-                    <div class="hud-buttons">
-                    <button id="restart-btn">Reiniciar 🔄</button>
-                    <button id="fullscreen-btn">Tela Cheia ⛶</button>
+
+                <div id="top-bar">
+                    <div id="sun-counter">
+                        <span class="sun-icon">☀️</span>
+                        <span id="sun-count">150</span>
+                    </div>
+
+                    <div id="seed-bank">
+                        <div class="seed-card" data-plant="sunflower" data-cost="50">
+                            <span class="slot-num">1</span>
+                            <span class="card-icon">🌻</span>
+                            <span class="card-cost">50</span>
+                        </div>
+                        <div class="seed-card" data-plant="peashooter" data-cost="100">
+                            <span class="slot-num">2</span>
+                            <img src="pea.png" class="card-img" alt="Pea">
+                            <span class="card-cost">100</span>
+                        </div>
+                        <div class="seed-card" data-plant="snowpea" data-cost="150">
+                            <span class="slot-num">3</span>
+                            <span class="card-icon">🥶</span>
+                            <span class="card-cost">150</span>
+                        </div>
+                        <div class="seed-card" data-plant="repeater" data-cost="200">
+                            <span class="slot-num">4</span>
+                            <span class="card-icon">🔥</span>
+                            <span class="card-cost">200</span>
+                        </div>
+                        <div class="seed-card" data-plant="wallnut" data-cost="50">
+                            <span class="slot-num">5</span>
+                            <span class="card-icon">🥜</span>
+                            <span class="card-cost">50</span>
+                        </div>
+                        <div class="seed-card" data-plant="cherrybomb" data-cost="150">
+                            <span class="slot-num">6</span>
+                            <span class="card-icon">🍒</span>
+                            <span class="card-cost">150</span>
+                        </div>
+                        <div class="shovel-card" id="shovel-btn">
+                            <span class="card-icon">⛏️</span>
+                            <span class="card-label">PÁ</span>
+                        </div>
+                    </div>
+
+                    <div id="score-board">
+                        <div class="info-group">
+                            <span class="info-title">PONTOS</span>
+                            <span id="score-count">0</span>
+                        </div>
+                        <div class="info-group">
+                            <span class="info-title">ONDA</span>
+                            <span id="wave-count">1</span>
+                        </div>
+                    </div>
+
+                    <div id="hud-controls">
+                        <button id="restart-btn" title="Reiniciar">🔄</button>
+                        <button id="fullscreen-btn" title="Tela Cheia">⛶</button>
+                    </div>
                 </div>
 
-                <div id="lawn-grid"></div>
-
-                <div id="plant-selector">
-                    <button class="plant-card" data-plant="peashooter" data-cost="100">
-                        Peashooter (100 ☀️)
-                    </button>
-                    <button class="plant-card" data-plant="sunflower" data-cost="50">
-                        Sunflower (50 ☀️)
-                    </button>
+                <div id="lawn-wrapper">
+                    <div id="mower-lane">
+                        <div class="mower">🚜</div>
+                        <div class="mower">🚜</div>
+                        <div class="mower">🚜</div>
+                        <div class="mower">🚜</div>
+                        <div class="mower">🚜</div>
+                    </div>
+                    <div id="lawn-grid"></div>
                 </div>
+
+                <div id="message-banner">Plante Girassóis para gerar mais sol!</div>
             </div>
         </div>
     </main>
 
-<footer class="meu-rodape">
-  
-  <div class="coluna-rodape">
-    <h3>CONTATO</h3>
-    <p>Vinicios.roberto@escola.pr.gov.br</p>
-    <p>Fone: (41) 99502-6798</p>
-    <p>ARAUCÁRIA-PR</p>
-    <p>2026 CURSO DE DS</p>
-  </div>
+    <footer id="footer-section">
+        <div class="footer-container">
+            <div class="footer-block">
+                <h3>CONTATO</h3>
+                <p>Vinicios.roberto@escola.pr.gov.br</p>
+                <p>Fone: (41) 99502-6798</p>
+                <p>ARAUCÁRIA-PR</p>
+                <p>2026 CURSO DE DS</p>
+            </div>
 
-  <div class="coluna-rodape">
-    <h3>LOCALIZAÇÃO</h3>
-    <div class="mapa-container">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3598.665191771192!2d-49.3853823!3d-25.5828114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dcdbe9d62fc209%3A0x11f34933ababa32e!2sCapela%20Velha%2C%20Arauc%C3%A1ria%20-%20PR!5e0!3m2!1spt-BR!2sbr!4v1719277000000!5m2!1spt-BR!2sbr" 
-        width="100%" 
-        height="220" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
-  </div>
+            <div class="footer-block">
+                <h3>LOCALIZAÇÃO</h3>
+                <div class="map-container">
+                </div>
+            </div>
+        </div>
+    </footer>
 
-<script src="audio.js"></script>
+    <script src="audio.js"></script>
     <script src="hud.js"></script>
-    <script src="jogo.js"></script>
-
-</footer>
+    <script src="game.js"></script>
 </body>
 </html>
