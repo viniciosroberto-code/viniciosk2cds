@@ -5,8 +5,10 @@ const HUD = {
 
     init() {
         this.updateSunDisplay();
+        this.updateHighScoreDisplay();
         this.setupFullscreen();
         this.setupRestart();
+        this.setupStartButton();
     },
 
     updateSuns(amount) {
@@ -23,16 +25,34 @@ const HUD = {
         document.getElementById('sun-count').innerText = this.suns;
     },
 
+    updateWaveDisplay(wave) {
+        document.getElementById('wave-count').innerText = wave;
+    },
+
+    updateHighScoreDisplay() {
+        const savedScore = localStorage.getItem('pvz_highscore') || 0;
+        const savedName = localStorage.getItem('pvz_playername') || 'Ninguém';
+        document.getElementById('high-score-display').innerText = `${savedScore} (${savedName})`;
+    },
+
+    saveNewRecord(wave) {
+        const currentHigh = parseInt(localStorage.getItem('pvz_highscore') || 0);
+        if (wave > currentHigh) {
+            const name = prompt(`🎉 NOVO RECORDE DA PÁGINA! Você sobreviveu até a Onda ${wave}!\nDigite seu nome para o placar:`) || 'JogadorAnônimo';
+            localStorage.setItem('pvz_highscore', wave);
+            localStorage.setItem('pvz_playername', name);
+            this.updateHighScoreDisplay();
+        }
+    },
+
     setSelectedPlant(plantName, cost) {
         this.selectedPlant = plantName;
         this.selectedCost = cost;
-        document.getElementById('selected-plant').innerText = `${plantName} (${cost}☀️)`;
     },
 
     clearSelection() {
         this.selectedPlant = null;
         this.selectedCost = 0;
-        document.getElementById('selected-plant').innerText = 'Nenhuma';
     },
 
     setupFullscreen() {
@@ -54,6 +74,16 @@ const HUD = {
         const btn = document.getElementById('restart-btn');
         btn.addEventListener('click', () => {
             Game.restart();
+        });
+    },
+
+    setupStartButton() {
+        const startBtn = document.getElementById('start-game-btn');
+        const startMenu = document.getElementById('start-menu');
+
+        startBtn.addEventListener('click', () => {
+            startMenu.style.display = 'none';
+            Game.start();
         });
     }
 };
